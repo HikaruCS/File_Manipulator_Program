@@ -18,23 +18,22 @@ else:
     if command == 'reverse':
         output_path = sys.argv[3]
 
-        with open(input_path) as f:
+        with open(input_path, 'r') as f:
             content = f.read()
-            content = content[::1]  # Reverse the content
 
         with open(output_path, 'w') as f:
-            f.write(content)
+            f.write(content[::-1])
     
     elif command == 'copy':
         output_path = sys.argv[3]
 
-        with open(input_path) as f:
+        with open(input_path, 'r') as f:
             content = f.read()
 
-        with open(output_path) as f:
+        with open(output_path, 'w') as f:
             f.write(content)
 
-    elif command == 'duplicate_contents':
+    elif command == 'duplicate-contents':
         number_of_copies = sys.argv[3]
 
         if not number_of_copies.isdecimal():  # Check whether the user inputs the number to duplicate the contents
@@ -42,7 +41,9 @@ else:
             sys.exit(1)
         
         else:
-            with open(input_path) as f:
+            number_of_copies = int(number_of_copies)
+
+            with open(input_path, 'r') as f:
                 content = f.read()
 
             with open(input_path, 'a') as f:
@@ -50,14 +51,18 @@ else:
                     f.write(content)
     
     elif command == 'replace-string':
-        string = sys.argv[3]
-        new_string = sys.argv[4]
+        if len(sys.argv) < 5:
+            print("Illegal Command: Do you forget to enter something?")
+            sys.exit(1)
+        else:
+            string = sys.argv[3]
+            new_string = sys.argv[4]
 
-        with open(input_path) as f:
-            content = f.read()
+            with open(input_path, 'r') as f:
+                content = f.read()
 
-        with open(input_path, 'w') as f:
-            f.write(content.replace(string, new_string))
+            with open(input_path, 'w') as f:
+                f.write(content.replace(string, new_string))
     
     else:
         display_message()
