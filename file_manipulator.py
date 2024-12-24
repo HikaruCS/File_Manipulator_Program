@@ -65,5 +65,3 @@ else:
 
 print('The file is successfully manipulated.')
 sys.exit(0)
-
-# test
