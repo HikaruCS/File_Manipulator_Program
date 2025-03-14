@@ -1,5 +1,6 @@
 # File Manipulator Program
-コマンドを使ってファイル操作をするプログラム
+コマンドを使ってファイル操作をするプログラム<br>
+Recursion (https://recursionist.io/) のバックエンドプロジェクト1での制作物です。
 ## コマンド
 1. python3 file_manipulator.py reverse (input-file-path) (output-file-path): input-file-pathの内容を逆にして、output-file-pathとして保存します。
 2. python3 file_manipulator.py copy (input-file-path) (output-file-path): input-file-pathの内容をコピーして、output-file-pathとして保存します。
